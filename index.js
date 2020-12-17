@@ -4,7 +4,7 @@ const port=5000;
 const admin = require("firebase-admin");
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
+const cors=require('cors');
 const serviceAccount = require("./serviceAccountKey.json");
 let recipeId=56;
 admin.initializeApp({
@@ -12,6 +12,7 @@ admin.initializeApp({
   });
 const db=admin.firestore();
 app.use(express.json());
+app.use(cors());
 /**
  * handling the resgistration route
  * validate wether a email is already present.
